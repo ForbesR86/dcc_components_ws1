@@ -1,0 +1,13 @@
+.table{
+    color:black;
+}
+
+.tableHeader{
+    background-color:aqua;
+    border:1px dotted black;
+    size: 16px;
+}
+
+.details{
+    text-shadow: 1px;
+}
