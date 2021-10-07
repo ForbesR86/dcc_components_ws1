@@ -5,6 +5,7 @@ import DisplayName from './components/DisplayName/DisplayName';
 import NamesList from './components/NamesList/NamesList';
 import AlertUser from './components/AlertUser/AlertUser';
 import SuperHeroTable from './components/SuperHeroTable/SuperHeroTable';
+import SuperheroCreateForm from './components/SuperheroCreateForm/SuperheroCreateForm';
 
 class App extends Component {
   constructor(props){
@@ -12,9 +13,11 @@ class App extends Component {
       this.person = [
           {firstName: 'Reggie', lastName: 'White'},
       ];
+
       this.names = [
           'Mike', 'Nevin', 'Aaron', 'Tory', 'Kelly', 'Randy'
       ];
+
       this.superheroes = [
           {
               superheroId: 1,
@@ -60,7 +63,7 @@ class App extends Component {
   createSuperhero =(newSuper)=> {
       this.superheroes.push(newSuper);
       this.setState({
-          personNumber: this.superheroes.length - 1
+          personNumber: 0
       })
   }
 
@@ -70,11 +73,20 @@ class App extends Component {
 
           <DisplayName person={this.person[this.state.personNumber]} />
           <br></br>
+          <hr></hr>
           <NamesList names={this.names}/>
+          <br></br>
+          <hr></hr>
           <h1> Alert</h1>
           <AlertUser alert={this.alertButton}/>
+          <br></br><hr></hr>
           <h1>Super Heroes!</h1>
           <SuperHeroTable superheroes={this.superheroes}/>
+          <br></br><br></br>
+          <SuperheroCreateForm createNewSuper={this.createSuperhero} idnum={this.superheroes.length}/>
+          <hr></hr>
+          
+        
       </div>
       )
   }

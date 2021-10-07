@@ -4,7 +4,7 @@ import './DisplayName.css'
 
 const DisplayName = (props) => {
     return(
-        <div className='displayName'>
+        <div>
             <div>
                 <h1> {props.person.firstName} </h1>
                 <h1> {props.person.lastName} </h1>
