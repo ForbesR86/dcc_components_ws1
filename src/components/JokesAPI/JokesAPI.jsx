@@ -3,22 +3,21 @@ import axios from 'axios';
 
 class JokesAPI extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             jokes: []
-         }
-    }
+         }}
+    
 
 //https://v2.jokeapi.dev/joke/Programming?type=twopart&blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amount=5'
 componentDidMount() {
-    axios.get('https://v2.jokeapi.dev/joke/Programming?type=twopart&blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amount=5')
+    axios.get(`https://v2.jokeapi.dev/joke/Programming?type=twopart&blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amount=5`)
       .then(res => {
-        const newJokes = res.data;
+        const newjokes = res.data.jokes;
+        console.log(newjokes)
         this.setState({ 
-            jokes: newJokes
-         });
+            jokes: newjokes });
       })
-      console.log(this.state.jokes)
   }
 
     // {
@@ -38,9 +37,18 @@ componentDidMount() {
     //     "safe": true,
     //     "lang": "en"
     // }
-    render() { 
+    render() {
+        console.log(this.state.jokes) 
         return(
-            <h1>{this.state.jokes}</h1>
+            <dl>
+            {/* https://stackoverflow.com/questions/23840997/how-can-i-return-multiple-lines-jsx-in-another-return-statement-in-react */}
+            {this.state.jokes.map(id => (
+                <React.Fragment key={id.id}>
+                <dt>{id.setup}</dt>
+                <dd>{id.delivery}</dd>
+                </React.Fragment>
+                ))}
+            </dl>
         );
     }
 }
