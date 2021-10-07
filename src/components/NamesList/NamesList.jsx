@@ -10,7 +10,7 @@ const NamesList=(props)=>{
             <hr/>
             <ul>
                 {props.names.map((name)=>{
-                    return <li className="a"> {name} </li>
+                    return <li className="a" key={name}> {name} </li>
                 })}
             </ul>
         </div>

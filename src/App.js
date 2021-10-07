@@ -6,7 +6,7 @@ import NamesList from './components/NamesList/NamesList';
 import AlertUser from './components/AlertUser/AlertUser';
 import SuperHeroTable from './components/SuperHeroTable/SuperHeroTable';
 import SuperheroCreateForm from './components/SuperheroCreateForm/SuperheroCreateForm';
-
+import JokesAPI from './components/JokesAPI/JokesAPI';
 class App extends Component {
   constructor(props){
       super(props);
@@ -67,6 +67,9 @@ class App extends Component {
       })
   }
 
+
+  
+
   render (){
       return(
       <div className= "container-fluid">
@@ -85,7 +88,7 @@ class App extends Component {
           <br></br><br></br>
           <SuperheroCreateForm createNewSuper={this.createSuperhero} idnum={this.superheroes.length}/>
           <hr></hr>
-          
+          <JokesAPI />
         
       </div>
       )
